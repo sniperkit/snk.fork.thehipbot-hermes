@@ -1,3 +1,8 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 // Copyright © 2018 Jeremy Chambers <jeromext@gmail.com>
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,14 +25,15 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/TheHipbot/hermes/cache"
-	"github.com/TheHipbot/hermes/fs"
-	"github.com/TheHipbot/hermes/prompt"
-	"github.com/TheHipbot/hermes/repo"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	git "gopkg.in/src-d/go-git.v4"
+
+	"github.com/sniperkit/snk.fork.thehipbot-hermes/cache"
+	"github.com/sniperkit/snk.fork.thehipbot-hermes/fs"
+	"github.com/sniperkit/snk.fork.thehipbot-hermes/prompt"
+	"github.com/sniperkit/snk.fork.thehipbot-hermes/repo"
 )
 
 var (

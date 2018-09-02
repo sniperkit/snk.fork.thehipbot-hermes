@@ -1,10 +1,16 @@
-//go:generate mockgen -destination ../mock/mock_prompt.go github.com/TheHipbot/hermes/prompt Prompt,Factory
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
+//go:generate mockgen -destination ../mock/mock_prompt.go github.com/sniperkit/snk.fork.thehipbot-hermes/prompt Prompt,Factory
 
 package prompt
 
 import (
-	"github.com/TheHipbot/hermes/cache"
 	"github.com/manifoldco/promptui"
+
+	"github.com/sniperkit/snk.fork.thehipbot-hermes/cache"
 )
 
 var (

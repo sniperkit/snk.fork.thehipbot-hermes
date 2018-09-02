@@ -1,3 +1,8 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 // Copyright © 2018 Jeremy Chambers <jeromext@gmail.com>
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +19,9 @@
 
 package main
 
-import "github.com/TheHipbot/hermes/cmd"
+import (
+	"github.com/sniperkit/snk.fork.thehipbot-hermes/cmd"
+)
 
 func main() {
 	cmd.Execute()

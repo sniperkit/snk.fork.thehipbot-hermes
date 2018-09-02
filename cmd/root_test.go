@@ -1,21 +1,24 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 package cmd
 
 import (
 	"fmt"
 	"testing"
 
-	"gopkg.in/src-d/go-billy.v4"
-
+	"github.com/golang/mock/gomock"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/stretchr/testify/suite"
+	"gopkg.in/src-d/go-billy.v4"
 	"gopkg.in/src-d/go-billy.v4/memfs"
 
-	"github.com/golang/mock/gomock"
-
-	"github.com/TheHipbot/hermes/cache"
-	"github.com/TheHipbot/hermes/fs"
-	mock_prompt "github.com/TheHipbot/hermes/mock"
-	"github.com/stretchr/testify/suite"
+	"github.com/sniperkit/snk.fork.thehipbot-hermes/cache"
+	"github.com/sniperkit/snk.fork.thehipbot-hermes/fs"
+	mock_prompt "github.com/sniperkit/snk.fork.thehipbot-hermes/mock"
 )
 
 var (
@@ -52,8 +55,8 @@ func (s *RootCmdSuite) TestGetHandlerSingleCachedRepo() {
 				"url":  "https://github.com",
 				"repos": [
 					{
-						"name": "github.com/TheHipbot/hermes",
-						"repo_path": "/repos/github.com/TheHipbot/hermes"
+						"name": "github.com/sniperkit/snk.fork.thehipbot-hermes",
+						"repo_path": "/repos/github.com/sniperkit/snk.fork.thehipbot-hermes"
 					},
 					{
 						"name": "github.com/TheHipbot/dotfiles",
@@ -95,7 +98,7 @@ func (s *RootCmdSuite) TestGetHandlerSingleCachedRepo() {
 		Times(0)
 	prompter = mockPrompter
 
-	getHandler(cmd, []string{"github.com/TheHipbot/hermes"})
+	getHandler(cmd, []string{"github.com/sniperkit/snk.fork.thehipbot-hermes"})
 	target := fmt.Sprintf("%s%s", viper.GetString("config_path"), viper.GetString("target_file"))
 	stat, _ := configFS.FS.Stat(target)
 	targetFile, err := configFS.FS.Open(target)
@@ -103,7 +106,7 @@ func (s *RootCmdSuite) TestGetHandlerSingleCachedRepo() {
 	content := make([]byte, stat.Size())
 	targetFile.Read(content)
 	s.Nil(err, "Target file should exist")
-	s.Equal(string(content), "/repos/github.com/TheHipbot/hermes", "Get should find one repo and set target path")
+	s.Equal(string(content), "/repos/github.com/sniperkit/snk.fork.thehipbot-hermes", "Get should find one repo and set target path")
 }
 
 func (s *RootCmdSuite) TestGetHandlerMultipleCachedRepos() {
@@ -118,8 +121,8 @@ func (s *RootCmdSuite) TestGetHandlerMultipleCachedRepos() {
 				"url":  "https://github.com",
 				"repos": [
 					{
-						"name": "github.com/TheHipbot/hermes",
-						"repo_path": "/repos/github.com/TheHipbot/hermes"
+						"name": "github.com/sniperkit/snk.fork.thehipbot-hermes",
+						"repo_path": "/repos/github.com/sniperkit/snk.fork.thehipbot-hermes"
 					},
 					{
 						"name": "github.com/TheHipbot/dotfiles",
@@ -155,8 +158,8 @@ func (s *RootCmdSuite) TestGetHandlerMultipleCachedRepos() {
 	fsCache.Open()
 	repos := []cache.Repo{
 		cache.Repo{
-			Name: "github.com/TheHipbot/hermes",
-			Path: "/repos/github.com/TheHipbot/hermes",
+			Name: "github.com/sniperkit/snk.fork.thehipbot-hermes",
+			Path: "/repos/github.com/sniperkit/snk.fork.thehipbot-hermes",
 		},
 		cache.Repo{
 			Name: "github.com/TheHipbot/dotfiles",

@@ -1,3 +1,8 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 package cache
 
 import (
@@ -6,9 +11,8 @@ import (
 	"net/url"
 	"testing"
 
-	"gopkg.in/src-d/go-billy.v4/memfs"
-
 	"github.com/stretchr/testify/suite"
+	"gopkg.in/src-d/go-billy.v4/memfs"
 )
 
 var (
@@ -38,8 +42,8 @@ func (s *CacheSuite) SetupTest() {
 				URL:  githubURL.String(),
 				Repos: []Repo{
 					Repo{
-						Name: "github.com/TheHipbot/hermes",
-						Path: "/repos/github.com/TheHipbot/hermes",
+						Name: "github.com/sniperkit/snk.fork.thehipbot-hermes",
+						Path: "/repos/github.com/sniperkit/snk.fork.thehipbot-hermes",
 					},
 					Repo{
 						Name: "github.com/TheHipbot/dotfiles",
@@ -87,8 +91,8 @@ func (s *CacheSuite) TestCacheOpenWithFileData() {
 				"url":  "https://github.com",
 				"repos": [
 					{
-						"name": "github.com/TheHipbot/hermes",
-						"repo_path": "/repos/github.com/TheHipbot/hermes"
+						"name": "github.com/sniperkit/snk.fork.thehipbot-hermes",
+						"repo_path": "/repos/github.com/sniperkit/snk.fork.thehipbot-hermes"
 					},
 					{
 						"name": "github.com/TheHipbot/dotfiles",
@@ -129,7 +133,7 @@ func (s *CacheSuite) TestCacheOpenWithFileData() {
 	s.Equal(cache.Version, "0.0.1", "Cache format version should be 0.0.1")
 	s.NotNil(cache.Remotes["github.com"], "There should be repos in the github.com remote")
 	s.Equal(len(cache.Remotes["github.com"].Repos), 4, "There should be 4 repos in the github.com remote")
-	s.Equal(cache.Remotes["github.com"].Repos[0].Name, "github.com/TheHipbot/hermes", "The first repo in the github.com remote should be hermes")
+	s.Equal(cache.Remotes["github.com"].Repos[0].Name, "github.com/sniperkit/snk.fork.thehipbot-hermes", "The first repo in the github.com remote should be hermes")
 	s.NotNil(cache.Remotes["gitlab.com"], "There should be repos in the gitlab.com remote")
 	s.Equal(len(cache.Remotes["gitlab.com"].Repos), 2, "There should be 4 repos in the gitlab.com remote")
 	s.Equal(cache.Remotes["gitlab.com"].Repos[0].Name, "gitlab.com/gitlab-org/gitlab-ce", "The first repo in the gitlab.com remote should be gitlab-ce")
@@ -278,7 +282,7 @@ func (s *CacheSuite) TestCacheSearchCaseInSensitiveWithResults() {
 
 	results = testCache.Search("thehipbot")
 	s.Len(results, 3, "There are 3 repos with files in the name")
-	s.Equal(results[0].Name, "github.com/TheHipbot/hermes")
+	s.Equal(results[0].Name, "github.com/sniperkit/snk.fork.thehipbot-hermes")
 	s.Equal(results[1].Name, "github.com/TheHipbot/dotfiles")
 	s.Equal(results[2].Name, "github.com/TheHipbot/dockerfiles")
 }

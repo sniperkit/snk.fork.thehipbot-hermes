@@ -1,6 +1,13 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 package remote
 
-import "errors"
+import (
+	"errors"
+)
 
 // Driver has GetRepos to find repos from remote
 type Driver interface {

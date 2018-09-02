@@ -1,14 +1,18 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 package prompt
 
 import (
 	"testing"
 
-	"github.com/TheHipbot/hermes/cache"
-	"github.com/stretchr/testify/mock"
-
 	"github.com/manifoldco/promptui"
-
+	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
+
+	"github.com/sniperkit/snk.fork.thehipbot-hermes/cache"
 )
 
 type PromptRepoSuite struct {
@@ -27,11 +31,11 @@ func (p *prompterMock) CreateSelectPrompt(label string, items interface{}, tmpls
 func (s *PromptRepoSuite) TestPrompterCreateSelectRepo() {
 	repos := []cache.Repo{
 		cache.Repo{
-			Name: "github.com/TheHipbot/hermes",
-			Path: "/test-repos/github.com/TheHipbot/hermes",
+			Name: "github.com/sniperkit/snk.fork.thehipbot-hermes",
+			Path: "/test-repos/github.com/sniperkit/snk.fork.thehipbot-hermes",
 		},
 		cache.Repo{
-			Name: "github.com/TheHipbot/hermes",
+			Name: "github.com/sniperkit/snk.fork.thehipbot-hermes",
 			Path: "/test-repos/github.com/TheHipbot/dockerfiles",
 		},
 	}
@@ -47,11 +51,11 @@ func (s *PromptRepoSuite) TestNewRepoSelectPrompt() {
 	prompter := new(prompterMock)
 	repos := []cache.Repo{
 		cache.Repo{
-			Name: "github.com/TheHipbot/hermes",
-			Path: "/test-repos/github.com/TheHipbot/hermes",
+			Name: "github.com/sniperkit/snk.fork.thehipbot-hermes",
+			Path: "/test-repos/github.com/sniperkit/snk.fork.thehipbot-hermes",
 		},
 		cache.Repo{
-			Name: "github.com/TheHipbot/hermes",
+			Name: "github.com/sniperkit/snk.fork.thehipbot-hermes",
 			Path: "/test-repos/github.com/TheHipbot/dockerfiles",
 		},
 	}

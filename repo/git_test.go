@@ -1,3 +1,8 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 package repo
 
 import (
@@ -12,7 +17,7 @@ import (
 
 var (
 	testReposPath = "/home/test-repos/"
-	testRepoName  = "github.com/TheHipbot/hermes"
+	testRepoName  = "github.com/sniperkit/snk.fork.thehipbot-hermes"
 )
 
 type GitRepositorySuite struct {
@@ -25,7 +30,7 @@ func (suite *GitRepositorySuite) SetupTest() {
 
 func (suite *GitRepositorySuite) TestCloneRepo() {
 	pathToClone := fmt.Sprintf("%s%s", testReposPath, testRepoName)
-	repoURL, err := url.Parse("https://github.com/TheHipbot/hermes")
+	repoURL, err := url.Parse("https://github.com/sniperkit/snk.fork.thehipbot-hermes")
 	suite.Nil(err, "Test URL could not be parsed")
 
 	repo := GitRepository{
@@ -58,7 +63,7 @@ func (suite *GitRepositorySuite) TestCloneRepo() {
 
 func (suite *GitRepositorySuite) TestCloneExistingRepo() {
 	pathToClone := fmt.Sprintf("%s%s", testReposPath, testRepoName)
-	repoURL, err := url.Parse("https://github.com/TheHipbot/hermes")
+	repoURL, err := url.Parse("https://github.com/sniperkit/snk.fork.thehipbot-hermes")
 	suite.Nil(err, "Test URL could not be parsed")
 
 	repo := GitRepository{

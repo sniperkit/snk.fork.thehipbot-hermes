@@ -1,3 +1,8 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 package fs
 
 import (
@@ -6,10 +11,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/stretchr/testify/suite"
-
 	"github.com/spf13/viper"
-
+	"github.com/stretchr/testify/suite"
 	"gopkg.in/src-d/go-billy.v4/memfs"
 )
 
@@ -44,7 +47,7 @@ func (s *ConfigFSSuite) TestSetupCreateDir() {
 }
 
 func (s *ConfigFSSuite) TestSetTarget() {
-	target := "/repo_dir/github.com/TheHipbot/hermes/"
+	target := "/repo_dir/github.com/sniperkit/snk.fork.thehipbot-hermes/"
 
 	// set up to create config_dir in memfs
 	cfs.Setup()
